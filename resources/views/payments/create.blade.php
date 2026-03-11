@@ -28,8 +28,9 @@
                     {!! session('alert-error') !!}
                 </div>
             @endif
-            
-            <form action="#" method="POST">
+
+            <form action="{{ route('payments-store') }}" method="POST">
+                @csrf
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -41,8 +42,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="price">Precio</label>
-                            <input type="number" name="price" id="price" class="form-control"
-                                placeholder="precio...">
+                            <input type="number" name="price" id="price" class="form-control" placeholder="precio...">
                         </div>
                     </div>
                 </div>
