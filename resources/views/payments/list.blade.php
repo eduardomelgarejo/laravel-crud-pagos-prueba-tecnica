@@ -38,9 +38,12 @@
                             <td class="text-center">${{ number_format($payment->price, 0, ',', '.') }}</td>
                             <td class="text-center">
                                 <div class="btn-group">
-                                    <a href="#"
-                                        class="btn btn-sm btn-warning">Editar</a>
-                                    <a href="#" class="btn btn-sm btn-danger ms-1">Eliminar</a>
+                                    <a href="{{ route('payments-edit', $payment->id) }}" class="btn btn-sm btn-warning">Editar</a>
+                                    <form action="{{ route('payments-destroy', $payment->id) }}" method="POST" class="d-inline" onsubmit="return confirm('¿Seguro que deseas eliminar este pago?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger ms-1">Eliminar</button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>

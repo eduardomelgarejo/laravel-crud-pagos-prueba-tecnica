@@ -21,5 +21,8 @@ Route::get('/', function () {
 
 Route::get('/pagos', [PaymentsController::class, 'index'])->name('payments');
 Route::get('/pagos/crear', [PaymentsController::class, 'create'])->name('payments-create');
+Route::get('/pagos/{id}/editar', [PaymentsController::class, 'edit'])->name('payments-edit');
+Route::put('/pagos/{id}', [PaymentsController::class, 'update'])->name('payments-update');
+Route::delete('/pagos/{id}', [PaymentsController::class, 'destroy'])->name('payments-destroy');
 Route::get('punto-extra', [BonusController::class, 'index'])->name('extra-point');
 
