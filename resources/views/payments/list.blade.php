@@ -31,19 +31,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="text-center">1</td>
-                        <td class="text-center">Pago 1</td>
-                        <td class="text-center">1000</td>
-                        <td class="text-center">
-                            <div class="btn-group">
-                                <a href="#"
-                                    class="btn btn-sm btn-warning">Editar</a>
-                                <a href="#"
-                                    class="btn btn-sm btn-danger">Eliminar</a>
-                            </div>
-                        </td>
-                    </tr>
+                    @foreach($payments as $payment)
+                        <tr>
+                            <td class="text-center">{{ $payment->id }}</td>
+                            <td class="text-center">{{ $payment->description }}</td>
+                            <td class="text-center">${{ number_format($payment->price, 0, ',', '.') }}</td>
+                            <td class="text-center">
+                                <div class="btn-group">
+                                    <a href="#"
+                                        class="btn btn-sm btn-warning">Editar</a>
+                                    <a href="#" class="btn btn-sm btn-danger ms-1">Eliminar</a>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
